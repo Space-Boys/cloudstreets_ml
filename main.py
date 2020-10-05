@@ -56,7 +56,7 @@ class ImageSequence(tf.keras.utils.Sequence):
 
 
 def build_predictions(img_folder):
-    prediction_ds = ImageSequence(img_folder)
+    prediction_ds = ImageSequence(img_folder, batch_size=32)
 
     predictions = model.predict(prediction_ds)
     return tf.nn.softmax(predictions)
